@@ -1,1 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Random PAO Combination</title>
+</head>
+<body>
+    <h1>Random PAO Combination</h1>
+    <button onclick="generateRandomPAO()">Generate</button>
+    <p id="result"></p>
 
+    <script>
+        // Define your PAO associations
+        const paoAssociations = [
+            ["Einstein", "Thinking deeply", "Chalkboard with equations"],
+            ["Sherlock Holmes", "Examining clues", "Magnifying glass"],
+            // Add more associations for other numbers here...
+        ];
+
+        // Function to generate a random number between 0 and 99
+        function getRandomNumber() {
+            return Math.floor(Math.random() * 100);
+        }
+
+        // Function to combine PAO associations with a random number
+        function generateRandomPAO() {
+            const randomNumber = getRandomNumber();
+            const tensDigit = Math.floor(randomNumber / 10); // Get the tens digit
+            const onesDigit = randomNumber % 10; // Get the ones digit
+            const tensPerson = paoAssociations[tensDigit][0];
+            const onesAction = paoAssociations[onesDigit][1];
+            const onesObject = paoAssociations[onesDigit][2];
+
+            const result = `Random Number: ${randomNumber}<br>
+                            Tens Person: ${tensPerson}<br>
+                            Ones Action: ${onesAction}<br>
+                            Ones Object: ${onesObject}`;
+
+            document.getElementById("result").innerHTML = result;
+        }
+    </script>
+</body>
+</html>
